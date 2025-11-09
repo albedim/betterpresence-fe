@@ -28,3 +28,7 @@ export const EMPTY_STATUS_DATA: STATUS_DATA = {
     editable: true,
     status_id: 0
 }
+
+export interface CACHED_STATUS_DATA {
+    [page: number]: STATUS_DATA[];
+}

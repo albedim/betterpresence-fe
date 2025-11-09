@@ -1,4 +1,6 @@
+import { DEFAULT_AVATAR_URL } from "../../../utils";
 import { Button } from "../../uui/base/buttons/button";
+import { Input } from "../../uui/base/input/input";
 
 interface AvatarEditorProps {
   isEditingAvatar: {
@@ -20,13 +22,14 @@ const AvatarEditor: React.FC<AvatarEditorProps> = (props) => {
   return(
     <>
       {props.isEditingAvatar.largeImage ? (
-        <div className="absolute z-10 bg-[#3f3f44] backdrop-blur-md rounded-xl p-4 flex flex-col gap-2">
-          <label className="text-white text-sm font-medium">Large Image URL:</label>
-          <input
-            type="text"
-            className="p-1 rounded-md bg-[#3a3a3f] text-white outline-none w-64"
-            value={props.editingAvatar.large_image}
-            onChange={(e) => props.onEditingAvatarChange({ ...props.editingAvatar, large_image: e.target.value })}
+        <div className="absolute z-10 border border-[#d4d4d4] bg-[#f7f7f7] backdrop-blur-md rounded-xl p-4 flex flex-col gap-2">
+          <label className="text-black text-sm font-medium">Large Image URL:</label>
+          <Input
+            wrapperClassName="h-9"
+            placeholder={DEFAULT_AVATAR_URL}
+            inputClassName=""
+            value={props.editingAvatar.large_image || ""}
+            onChange={(e) => props.onEditingAvatarChange({ ...props.editingAvatar, large_image: e })}
           />
           <div className="flex gap-2">
             <Button color="discord" className="text-xs w-full" onClick={props.changeEditingAvatar}>Save</Button>
@@ -35,13 +38,14 @@ const AvatarEditor: React.FC<AvatarEditorProps> = (props) => {
         </div>
       ) : null}
       {props.isEditingAvatar.smallImage ? (
-        <div className="absolute z-10 bg-[#3f3f44] backdrop-blur-md rounded-xl p-4 flex flex-col gap-2">
-          <label className="text-white text-sm font-medium">Small Image URL:</label>
-          <input
-            type="text"
-            className="p-1 rounded-md bg-[#3a3a3f] text-white outline-none w-64"
+        <div className="absolute z-10 border border-[#d4d4d4] bg-[#f7f7f7] backdrop-blur-md rounded-xl p-4 flex flex-col gap-2">
+          <label className="text-black text-sm font-medium">Small Image URL:</label>
+          <Input
+            wrapperClassName="h-9"
+            placeholder={DEFAULT_AVATAR_URL}
+            inputClassName=""
             value={props.editingAvatar.small_image || ""}
-            onChange={(e) => props.onEditingAvatarChange({ ...props.editingAvatar, small_image: e.target.value })}
+            onChange={(e) => props.onEditingAvatarChange({ ...props.editingAvatar, small_image: e })}
           />
           <div className="flex gap-2">
             <Button color="discord" className="text-xs w-full" onClick={props.changeEditingAvatar}>Save</Button>

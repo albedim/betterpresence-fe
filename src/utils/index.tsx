@@ -62,6 +62,8 @@ export const getUser = async () => {
   return user
 }
 
+export const DEFAULT_AVATAR_URL = "https://sb.kaleidousercontent.com/67418/1920x1100/15a1437b21/checkered-bg.png"
+
 export const getFormatDate = (d: string) => {
   const newDate = (d + "+00:00").replace("T", " ").replace("Z", "")
   try {

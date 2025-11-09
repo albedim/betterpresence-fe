@@ -1,19 +1,19 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { BASE_URL, getCookie } from "../../../utils";
-import { PinInput } from 'react-input-pin-code';
 import { Button } from "../../uui/base/buttons/button";
 import { CgDanger } from "react-icons/cg";
+import { IoMdCopy } from "react-icons/io";
+import { BiCopy } from "react-icons/bi";
 
 
 const RequestDesktopModal: React.FC = () => {
 
   const [requestCodeCopied, setRequestCodeCopied] = React.useState<boolean>(false);
-  const [isRequestCodeLoading, setIsRequestCodeLoading] = React.useState(false);
+  const [isRequestCodeLoading, setIsRequestCodeLoading] = React.useState(true);
   const [connectionCode, setConnectionCode] = React.useState<string>("");
 
   const requestDesktopApplication = async () => {
-    setIsRequestCodeLoading(true);
     await axios.post(BASE_URL + "/users/desktop/request", {}, {
       headers: {
         Authorization: "Bearer " + getCookie("jwt-token")
@@ -47,9 +47,13 @@ const RequestDesktopModal: React.FC = () => {
     }, 2000);
   };
 
+  useEffect(() => {
+    setIsRequestCodeLoading(true);
+  }, []);
+
   return (
     <div>
-      <div className="flex mt-6 items-center gap-2">
+      <div className="flex mt-2 items-center gap-2">
         <div className="bg-[#5865F2] p-2 w-7 h-7 flex items-center justify-around font-semibold rounded-full text-[white]">
           <p>1</p>
         </div>
@@ -115,7 +119,10 @@ const RequestDesktopModal: React.FC = () => {
               className="text-sm mt-4 w-full"
               onClick={copyCode}
             >
-              {requestCodeCopied ? "Code Copied!" : "Copy Code"}
+              <div className="flex items-center gap-1">
+                <BiCopy/>
+                {requestCodeCopied ? "Code Copied!" : "Copy Code"}
+              </div>
             </Button>      
           </div>
         )}

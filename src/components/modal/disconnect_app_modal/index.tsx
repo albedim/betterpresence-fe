@@ -2,7 +2,6 @@ import axios from "axios";
 import { Button } from "../../uui/base/buttons/button";
 import { BASE_URL, getCookie } from "../../../utils";
 import React from "react";
-import { FaTrash } from "react-icons/fa";
 
 interface DeleteModalProps {
   onClose: (deleted: boolean) => void;
