@@ -210,12 +210,18 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
       ) : null}
       {deleteModal.open ? (
         <ModalWrapper closeModal={() => setDeleteModal({open: false, statusId: 0})}>
-          <DeleteModal onClose={(deleted) => onStatusDelete(deleted, deleteModal.statusId)} activityId={deleteModal.statusId} />
+          <DeleteModal 
+            onClose={(deleted) => onStatusDelete(deleted, deleteModal.statusId)}
+            activityId={deleteModal.statusId}
+          />
         </ModalWrapper>
       ) : null}
       {disconnectAppModalOpen ? (
         <ModalWrapper closeModal={() => setDisconnectAppModalOpen(false)}>
-          <DisconnectAppModal onDDADisconnected={handleAppDisconnect} onClose={() => setDisconnectAppModalOpen(false)} />
+          <DisconnectAppModal 
+            onDDADisconnected={handleAppDisconnect}
+            onClose={() => setDisconnectAppModalOpen(false)}
+          />
         </ModalWrapper>
       ) : null}
       <div className="w-screen flex h-screen bg-[#FFFFFF]">
@@ -224,7 +230,6 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
           onDDAConnect={() => setDDAModalOpen(true)}
           onDDADisconnect={() => setDisconnectAppModalOpen(true)}
           selectedPage={props.selectedPage}
-          setSelectedPage={handleSelectedPage} 
         />
         <div className="p-14 w-screen">
           <div>
@@ -234,9 +239,16 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
             <div className="border w-84 border-[#ffc934] bg-[#ffc934]/20 mt-4 p-1 rounded-lg">
               <div className="flex gap-1 ">
                 <CgDanger size={54} className="text-[#c97200]"/>
-                <p className="text-sm text-[#c97200] mt-1">You must create and connect a discord developer application in order to create and customize custom activities.</p>
+                <p className="text-sm text-[#c97200] mt-1">
+                  You must create and connect a discord developer application in 
+                  order to create and customize custom activities.
+                </p>
               </div>
-              <Button className="text-xs mt-2 w-full bg-[#c97200] font-medium" onClick={connectApplication}>Connect App</Button>
+              <Button 
+                className="text-xs mt-2 w-full bg-[#c97200] font-medium"
+                onClick={connectApplication}>
+                  Connect App
+              </Button>
             </div>
           ): null}
           <div className="flex mb-14 w-full mt-14 items-center justify-between">
@@ -244,10 +256,17 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
             <div className="flex gap-8">
               <div className="rounded-[10px] h-10 w-74 items-center pl-2 pr-4 border border-[#d1d1d1] p-1 flex gap-2">
                 <BiSearch color="#b3b3b3" size={18}/>
-                <input onChange={(e) => handleSearch(e.target.value)} className="bg-transparent text-sm outline-none" placeholder="Search your statuses..." />
+                <input 
+                  onChange={(e) => handleSearch(e.target.value)}
+                  className="bg-transparent text-sm outline-none"
+                  placeholder="Search your statuses..."
+                />
               </div>
               <div className="flex gap-4">
-                <DropdownButton disabled={!isAppSet} onStatusSet={(status) => handleStatusChange(status)} />
+                <DropdownButton
+                  disabled={!isAppSet}
+                  onStatusSet={(status) => handleStatusChange(status)}
+                />
               </div>
             </div>
           </div>
@@ -263,9 +282,14 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
                 </div>
               ) : (
                 <div>
-                  <div className="grid md:grid-cols-3 grid-cols-2 z-1 gap-4 mt-3">
+                  <div className="grid grid-cols-2 z-1 gap-4 mt-3">
                     {shownStatuses.map((status) => (
-                      <StatusBuilder onStatusDelete={() => setDeleteModal({open: true, statusId: status.status_id})} onStatusChange={(newStatus) => updateStatusList(newStatus)} key={status.status_id} statusData={status} />
+                      <StatusBuilder 
+                        onStatusDelete={() => setDeleteModal({open: true, statusId: status.status_id})}
+                        onStatusChange={(newStatus) => updateStatusList(newStatus)}
+                        key={status.status_id}
+                        statusData={status}
+                      />
                     ))}
                   </div>
                 </div>

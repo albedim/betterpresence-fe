@@ -1,7 +1,7 @@
 // hooks/useStatusEditor.ts
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { BASE_URL, getCookie } from "../../../../utils"; // Assuming BASE_URL and getCookie are here
+import { BASE_URL, DEFAULT_AVATAR_URL, getCookie } from "../../../../utils"; // Assuming BASE_URL and getCookie are here
 import type { STATUS_DATA } from "../../../../types";
 
 interface UseStatusEditorProps {
@@ -59,8 +59,8 @@ export const useStatusEditor = ({ initialStatusData, onStatusChange }: UseStatus
   }, []);
 
   const changeEditingAvatar = useCallback(() => {
-    const largeImage = editingAvatar.large_image || "https://sb.kaleidousercontent.com/67418/1920x1100/15a1437b21/checkered-bg.png";
-    const smallImage = editingAvatar.small_image || "https://sb.kaleidousercontent.com/67418/1920x1100/15a1437b21/checkered-bg.png";
+    const largeImage = editingAvatar.large_image || DEFAULT_AVATAR_URL;
+    const smallImage = editingAvatar.small_image || DEFAULT_AVATAR_URL;
     const newStatusData = { ...statusData, large_image: largeImage, small_image: smallImage };
     setStatusData(newStatusData);
     closeAvatarEditing();

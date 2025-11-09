@@ -9,7 +9,6 @@ interface MenuProps {
   onRequestDesktopApplication: () => void;
   onDDAConnect: () => void;
   onDDADisconnect: () => void;
-  setSelectedPage: (page: PAGES) => void;
 }
 
 const Menu: React.FC<MenuProps> = (props) => {

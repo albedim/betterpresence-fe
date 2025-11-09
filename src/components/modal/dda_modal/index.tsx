@@ -118,7 +118,7 @@ const StepperIndicator: React.FC<{currentStep: number}> = (props) => {
       {[1,2,3].map((step) => (
         <div 
           key={step}
-          className={`${props.currentStep >= step ? "bg-[#5865F2]" : "bg-[#b3b3b3]"} w-full h-[4px] rounded-full`}
+          className={`${props.currentStep >= step ? "bg-[#5865F2]" : "bg-[#b3b3b3]"} w-full h-1 rounded-full`}
         ></div>
       ))}
     </div>
