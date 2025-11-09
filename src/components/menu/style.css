@@ -1,0 +1,43 @@
+/* 1. Define the Two-Color Animation */
+@keyframes pulse-color {
+  /* Start Color: Purple */
+    0% { 
+    background-color: #f8f8f8; 
+    }
+
+    /* End Color (and halfway point of the loop): Soft Blue */
+    25% { 
+    background-color: #eeeeee; 
+    }
+
+    /* End of cycle: Back to Purple (optional, but ensures a smooth loop) */
+    50% { 
+    background-color: #e6e6e6; 
+    }
+
+    75% { 
+        background-color: #eeeeee; 
+    }
+
+    100% { 
+        background-color: #f5f5f5; 
+    }
+}
+
+/* 2. Apply the Animation to the Element */
+.slow-color-pulse {
+  
+  /* --- ANIMATION PROPERTIES --- */
+  
+  /* Apply the keyframes named 'pulse-color' */
+  animation-name: pulse-color;
+  
+  /* Control the SPEED: Takes 4 seconds to transition from purple to blue and back */
+  animation-duration: 1.4s;
+  
+  /* Easing for a gentle, natural feel */
+  animation-timing-function: ease-in-out;
+  
+  /* Loop the animation forever */
+  animation-iteration-count: infinite;
+}
