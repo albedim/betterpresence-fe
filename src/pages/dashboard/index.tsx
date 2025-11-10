@@ -5,10 +5,8 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import type { PAGES, STATUS_DATA } from "../../types";
 import { BiSearch } from "react-icons/bi";
-import { CgDanger } from "react-icons/cg";
 import Menu from "../../components/menu";
 import { DropdownButton } from "../../components/dropdown";
-import { Button } from "../../components/uui/base/buttons/button";
 import Selector from "./selector";
 import ModalWrapper from "../../components/modal";
 import DDAModal from "../../components/modal/dda_modal";
@@ -62,10 +60,6 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
       navigate("/dashboard/favorites");
       getFavoriteStatuses();
     }
-  }
-
-  const connectApplication = () => {
-    setDDAModalOpen(true);
   }
 
   useEffect(() => {
@@ -231,30 +225,14 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
           onDDADisconnect={() => setDisconnectAppModalOpen(true)}
           selectedPage={props.selectedPage}
         />
-        <div className="p-14 w-screen">
+        <div className="ml-74 p-14 overflow-x-hidden w-screen">
           <div>
             <h1 className="text-[black] font-medium text-xl">Your custom activities</h1>
           </div>
-          {!isAppSet && !isAppLoading ? (
-            <div className="border w-84 border-[#ffc934] bg-[#ffc934]/20 mt-4 p-1 rounded-lg">
-              <div className="flex gap-1 ">
-                <CgDanger size={54} className="text-[#c97200]"/>
-                <p className="text-sm text-[#c97200] mt-1">
-                  You must create and connect a discord developer application in 
-                  order to create and customize custom activities.
-                </p>
-              </div>
-              <Button 
-                className="text-xs mt-2 w-full bg-[#c97200] font-medium"
-                onClick={connectApplication}>
-                  Connect App
-              </Button>
-            </div>
-          ): null}
-          <div className="flex mb-14 w-full mt-14 items-center justify-between">
+          <div className="lg:flex mb-14 w-full mt-14 items-center justify-between">
             <Selector onSelect={(page) => handleSelectedPage(page)} selectedPage={props.selectedPage} />
-            <div className="flex gap-8">
-              <div className="rounded-[10px] h-10 w-74 items-center pl-2 pr-4 border border-[#d1d1d1] p-1 flex gap-2">
+            <div className="lg:flex gap-8">
+              <div className="rounded-[10px] w-full lg:mt-0 mt-6 h-10 lg:w-74 items-center pl-2 pr-4 border border-[#d1d1d1] p-1 flex gap-2">
                 <BiSearch color="#b3b3b3" size={18}/>
                 <input 
                   onChange={(e) => handleSearch(e.target.value)}
@@ -262,7 +240,7 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
                   placeholder="Search your statuses..."
                 />
               </div>
-              <div className="flex gap-4">
+              <div className="flex lg:w-auto w-full lg:mt-0 mt-2 gap-4">
                 <DropdownButton
                   disabled={!isAppSet}
                   onStatusSet={(status) => handleStatusChange(status)}
@@ -282,7 +260,7 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
                 </div>
               ) : (
                 <div>
-                  <div className="grid grid-cols-2 z-1 gap-4 mt-3">
+                  <div className="lg:grid grid-cols-2 z-1 gap-4 mt-3">
                     {shownStatuses.map((status) => (
                       <StatusBuilder 
                         onStatusDelete={() => setDeleteModal({open: true, statusId: status.status_id})}

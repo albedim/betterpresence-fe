@@ -75,6 +75,42 @@ export const styles = sortCx({
                 "*:data-icon:text-button-primary-icon hover:*:data-icon:text-button-primary-icon_hover",
             ].join(" "),
         },
+        white: {
+            root: [
+                // Background & Hover: Use the hex color 5865F2 (Discord Blue) and a slightly darker hover state.
+                // NOTE: Since Tailwind CSS doesn't recognize arbitrary hex codes directly in utility classes, 
+                // we'll use Tailwind's arbitrary value feature `bg-[#5865F2]` and `hover:bg-[#4752C4]` (a slightly darker blue).
+                // If you have these colors mapped to CSS variables (e.g., brand-discord), you should use those instead.
+                "bg-[#fafafa] text-white shadow-xs-skeumorphic ring-1 ring-transparent ring-inset hover:bg-[#fafafa] data-loading:bg-[#fafafa]",
+                
+                // Inner border gradient (retained from primary)
+                "before:absolute before:inset-px before:border before:border-white/12 before:mask-b-from-0%",
+                
+                // Disabled styles (retained from primary)
+                "disabled:bg-disabled disabled:shadow-xs disabled:ring-disabled_subtle",
+                
+                // Icon styles (retained from primary)
+                "*:data-icon:text-button-primary-icon hover:*:data-icon:text-button-primary-icon_hover",
+            ].join(" "),
+        },
+        "discord-disabled": {
+            root: [
+                // Background & Hover: Use the hex color 5865F2 (Discord Blue) and a slightly darker hover state.
+                // NOTE: Since Tailwind CSS doesn't recognize arbitrary hex codes directly in utility classes, 
+                // we'll use Tailwind's arbitrary value feature `bg-[#5865F2]` and `hover:bg-[#4752C4]` (a slightly darker blue).
+                // If you have these colors mapped to CSS variables (e.g., brand-discord), you should use those instead.
+                "bg-[#5865F2]/40 text-white shadow-xs-skeumorphic ring-1 ring-transparent ring-inset data-loading:bg-[#4752C4]",
+                
+                // Inner border gradient (retained from primary)
+                "before:absolute before:inset-px before:border before:border-white/12 before:mask-b-from-0%",
+                
+                // Disabled styles (retained from primary)
+                "disabled:bg-disabled disabled:shadow-xs disabled:ring-disabled_subtle",
+                
+                // Icon styles (retained from primary)
+                "*:data-icon:text-button-primary-icon hover:*:data-icon:text-button-primary-icon_hover",
+            ].join(" "),
+        },
         "discord-outline": {
             root: [
                 // Base State: Transparent BG, Discord Blue Text, Discord Blue Ring
