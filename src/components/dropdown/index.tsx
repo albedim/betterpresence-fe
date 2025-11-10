@@ -13,7 +13,7 @@ interface DropdownButtonProps {
 
 export const DropdownButton: React.FC<DropdownButtonProps> = (props) => (
   <Dropdown.Root>
-    <Button isDisabled={props.disabled} color="discord" className="default:bg-[#5865F2] px-4 disabled:bg-[#5865F2]/80 h-10 border-none outline-none gap-1 text-[white] flex items-center text-sm rounded-[10px]">
+    <Button isDisabled={props.disabled} color="discord" className="default:bg-[#5865F2] w-full px-4 disabled:bg-[#5865F2]/80 h-10 border-none outline-none gap-1 text-[white] flex items-center text-sm rounded-[10px]">
       <div className="flex items-center gap-2">
         <IoMdAdd size={18}/>
         <p className="font-medium">Add New Activity</p>

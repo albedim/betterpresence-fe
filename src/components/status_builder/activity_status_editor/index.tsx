@@ -91,7 +91,7 @@ const ActivityStatusEditor: React.FC<ActivityStatusEditorProps> = (props) => {
 
 
   return (
-    <div className="bg-[#fcfcfc] border border-[#d1d5db] p-2 pb-3 rounded-xl">
+    <div className="bg-[#fcfcfc] border lg:mt-0 mt-4 border-[#d1d5db] p-2 pb-3 rounded-xl">
       <AvatarEditor
         editingAvatar={editingAvatar}
         onEditingAvatarChange={setEditingAvatar}

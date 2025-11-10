@@ -53,22 +53,11 @@ const RequestDesktopModal: React.FC = () => {
 
   return (
     <div>
-      <div className="flex mt-2 items-center gap-2">
+      <div className="flex items-center mt-2 gap-2">
         <div className="bg-[#5865F2] p-2 w-7 h-7 flex items-center justify-around font-semibold rounded-full text-[white]">
-          <p>1</p>
+          <p>3</p>
         </div>
-        <h1 className="text-[16px] font-medium">Download the App</h1>
-      </div>
-      <div className="mt-4 flex gap-1">
-        <Button color="discord" className="text-sm w-full" onClick={downloadApp}>
-          Download
-        </Button>
-      </div>
-      <div className="flex items-center mt-8 gap-2">
-        <div className="bg-[#5865F2] p-2 w-7 h-7 flex items-center justify-around font-semibold rounded-full text-[white]">
-          <p>2</p>
-        </div>
-        <h1 className="text-[16px] font-medium">Login to the App</h1>
+        <h1 className="text-[16px] font-medium">Configure Client</h1>
       </div>
       <p className="mt-2 text-[14.4px] text-[#353535]">
         Once you have downloaded and opened the application, 
